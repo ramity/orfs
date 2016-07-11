@@ -1,0 +1,44 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>PaymentMethods</h1>
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ entity.id }}</td>
+            </tr>
+            <tr>
+                <th>Customerid</th>
+                <td>{{ entity.customerId }}</td>
+            </tr>
+            <tr>
+                <th>Cardholdername</th>
+                <td>{{ entity.cardHolderName }}</td>
+            </tr>
+            <tr>
+                <th>Carddigits</th>
+                <td>{{ entity.cardDigits }}</td>
+            </tr>
+            <tr>
+                <th>Expdate</th>
+                <td>{{ entity.expDate }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('paymentmethods') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('paymentmethods_edit', { 'id': entity.id }) }}">
+            Edit
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+{% endblock %}

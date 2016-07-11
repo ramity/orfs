@@ -1,0 +1,47 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>PaymentMethods list</h1>
+
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Customerid</th>
+                <th>Cardholdername</th>
+                <th>Carddigits</th>
+                <th>Expdate</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('paymentmethods_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>{{ entity.customerId }}</td>
+                <td>{{ entity.cardHolderName }}</td>
+                <td>{{ entity.cardDigits }}</td>
+                <td>{{ entity.expDate }}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('paymentmethods_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('paymentmethods_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+            <a href="{{ path('paymentmethods_new') }}">
+                Create a new entry
+            </a>
+        </li>
+    </ul>
+    {% endblock %}

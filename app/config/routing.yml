@@ -1,0 +1,5 @@
+orfs_store:
+    resource: "@ORFSStoreBundle/Controller/"
+    type:     annotation
+    prefix:   /
+

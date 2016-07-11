@@ -1,0 +1,116 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Orders</h1>
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ entity.id }}</td>
+            </tr>
+            <tr>
+                <th>Products</th>
+                <td>{{ entity.products }}</td>
+            </tr>
+            <tr>
+                <th>Firstname</th>
+                <td>{{ entity.firstName }}</td>
+            </tr>
+            <tr>
+                <th>Lastname</th>
+                <td>{{ entity.lastName }}</td>
+            </tr>
+            <tr>
+                <th>Company</th>
+                <td>{{ entity.company }}</td>
+            </tr>
+            <tr>
+                <th>Communicationmethod</th>
+                <td>{{ entity.communicationMethod }}</td>
+            </tr>
+            <tr>
+                <th>Communicationvalue</th>
+                <td>{{ entity.communicationValue }}</td>
+            </tr>
+            <tr>
+                <th>Shippingstreetaddressone</th>
+                <td>{{ entity.shippingStreetAddressOne }}</td>
+            </tr>
+            <tr>
+                <th>Shippingstreetaddresstwo</th>
+                <td>{{ entity.shippingStreetAddressTwo }}</td>
+            </tr>
+            <tr>
+                <th>Shippingcity</th>
+                <td>{{ entity.shippingCity }}</td>
+            </tr>
+            <tr>
+                <th>Shippingstate</th>
+                <td>{{ entity.shippingState }}</td>
+            </tr>
+            <tr>
+                <th>Shippingzipcode</th>
+                <td>{{ entity.shippingZipCode }}</td>
+            </tr>
+            <tr>
+                <th>Billingstreetaddressone</th>
+                <td>{{ entity.billingStreetAddressOne }}</td>
+            </tr>
+            <tr>
+                <th>Billingstreetaddresstwo</th>
+                <td>{{ entity.billingStreetAddressTwo }}</td>
+            </tr>
+            <tr>
+                <th>Billingcity</th>
+                <td>{{ entity.billingCity }}</td>
+            </tr>
+            <tr>
+                <th>Billingstate</th>
+                <td>{{ entity.billingState }}</td>
+            </tr>
+            <tr>
+                <th>Billingzipcode</th>
+                <td>{{ entity.billingZipCode }}</td>
+            </tr>
+            <tr>
+                <th>Deliverymethod</th>
+                <td>{{ entity.deliveryMethod }}</td>
+            </tr>
+            <tr>
+                <th>Deliveryinstructions</th>
+                <td>{{ entity.deliveryInstructions }}</td>
+            </tr>
+            <tr>
+                <th>Schedule</th>
+                <td>{{ entity.schedule }}</td>
+            </tr>
+            <tr>
+                <th>Couponcodes</th>
+                <td>{{ entity.couponCodes }}</td>
+            </tr>
+            <tr>
+                <th>Comments</th>
+                <td>{{ entity.comments }}</td>
+            </tr>
+            <tr>
+                <th>Eventlogs</th>
+                <td>{{ entity.eventLogs }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('orders') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('orders_edit', { 'id': entity.id }) }}">
+            Edit
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+{% endblock %}

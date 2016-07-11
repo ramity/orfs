@@ -1,0 +1,75 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Accounts list</h1>
+
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Email</th>
+                <th>Customerid</th>
+                <th>Password</th>
+                <th>Timecreated</th>
+                <th>Timelastactive</th>
+                <th>Isverified</th>
+                <th>Orders</th>
+                <th>Firstname</th>
+                <th>Lastname</th>
+                <th>Company</th>
+                <th>Communicationmethod</th>
+                <th>Communicationvalue</th>
+                <th>Streetaddressone</th>
+                <th>Streetaddresstwo</th>
+                <th>City</th>
+                <th>State</th>
+                <th>Zipcode</th>
+                <th>Paymentmethods</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('accounts_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>{{ entity.email }}</td>
+                <td>{{ entity.customerId }}</td>
+                <td>{{ entity.password }}</td>
+                <td>{% if entity.timeCreated %}{{ entity.timeCreated|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if entity.timeLastActive %}{{ entity.timeLastActive|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ entity.isVerified }}</td>
+                <td>{{ entity.orders }}</td>
+                <td>{{ entity.firstName }}</td>
+                <td>{{ entity.lastName }}</td>
+                <td>{{ entity.company }}</td>
+                <td>{{ entity.communicationMethod }}</td>
+                <td>{{ entity.communicationValue }}</td>
+                <td>{{ entity.streetAddressOne }}</td>
+                <td>{{ entity.streetAddressTwo }}</td>
+                <td>{{ entity.city }}</td>
+                <td>{{ entity.state }}</td>
+                <td>{{ entity.zipCode }}</td>
+                <td>{{ entity.paymentMethods }}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('accounts_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('accounts_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+            <a href="{{ path('accounts_new') }}">
+                Create a new entry
+            </a>
+        </li>
+    </ul>
+    {% endblock %}
