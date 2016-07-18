@@ -1,0 +1,15 @@
+composer install
+
+[input data for local machine database + mailer]
+
+create database referenced above
+
+start WAMP (for mysql database)
+
+app/console server:run
+
+app/console c:c
+
+app/console a:d
+
+app/console d:s:u --dump-sql --force

@@ -27,6 +27,7 @@ security:
 
             logout:       true
             anonymous:    true
+
     access_control:
         - { path: ^/accounts/, role: ROLE_ADMIN }
         - { path: ^/carts/, role: ROLE_ADMIN }
