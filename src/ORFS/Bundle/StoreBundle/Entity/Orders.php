@@ -22,9 +22,8 @@ class Orders
     private $id;
 
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="products", type="integer")
+     * @ORM\ManyToMany(targetEntity="ORFS\Bundle\StoreBundle\Entity\Products", cascade={"persist"})
+     * @ORM\JoinColumn(name="products", referencedColumnName="id", onDelete="CASCADE")
      */
     private $products;
 
@@ -50,9 +49,8 @@ class Orders
     private $company;
 
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="communicationMethod", type="integer")
+     * @ORM\OneToOne(targetEntity="ORFS\Bundle\StoreBundle\Entity\CommunicationMethods", cascade={"persist"})
+     * @ORM\JoinColumn(name="communicationMethod", referencedColumnName="id", onDelete="CASCADE")
      */
     private $communicationMethod;
 
@@ -134,9 +132,8 @@ class Orders
     private $billingZipCode;
 
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="deliveryMethod", type="integer")
+     * @ORM\OneToOne(targetEntity="ORFS\Bundle\StoreBundle\Entity\DeliveryMethods", cascade={"persist"})
+     * @ORM\JoinColumn(name="deliveryMethod", referencedColumnName="id", onDelete="CASCADE")
      */
     private $deliveryMethod;
 
@@ -148,9 +145,8 @@ class Orders
     private $deliveryInstructions;
 
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="schedule", type="integer")
+     * @ORM\OneToOne(targetEntity="ORFS\Bundle\StoreBundle\Entity\Schedules", cascade={"persist"})
+     * @ORM\JoinColumn(name="schedule", referencedColumnName="id", onDelete="CASCADE")
      */
     private $schedule;
 
@@ -169,9 +165,8 @@ class Orders
     private $comments;
 
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="eventLogs", type="integer")
+     * @ORM\ManyToMany(targetEntity="ORFS\Bundle\StoreBundle\Entity\EventLogs", cascade={"persist"})
+     * @ORM\JoinColumn(name="eventLogs", referencedColumnName="id", onDelete="CASCADE")
      */
     private $eventLogs;
 
@@ -179,7 +174,7 @@ class Orders
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -202,7 +197,7 @@ class Orders
     /**
      * Get products
      *
-     * @return integer 
+     * @return integer
      */
     public function getProducts()
     {
@@ -225,7 +220,7 @@ class Orders
     /**
      * Get firstName
      *
-     * @return string 
+     * @return string
      */
     public function getFirstName()
     {
@@ -248,7 +243,7 @@ class Orders
     /**
      * Get lastName
      *
-     * @return string 
+     * @return string
      */
     public function getLastName()
     {
@@ -271,7 +266,7 @@ class Orders
     /**
      * Get company
      *
-     * @return string 
+     * @return string
      */
     public function getCompany()
     {
@@ -294,7 +289,7 @@ class Orders
     /**
      * Get communicationMethod
      *
-     * @return integer 
+     * @return integer
      */
     public function getCommunicationMethod()
     {
@@ -317,7 +312,7 @@ class Orders
     /**
      * Get communicationValue
      *
-     * @return string 
+     * @return string
      */
     public function getCommunicationValue()
     {
@@ -340,7 +335,7 @@ class Orders
     /**
      * Get shippingStreetAddressOne
      *
-     * @return string 
+     * @return string
      */
     public function getShippingStreetAddressOne()
     {
@@ -363,7 +358,7 @@ class Orders
     /**
      * Get shippingStreetAddressTwo
      *
-     * @return string 
+     * @return string
      */
     public function getShippingStreetAddressTwo()
     {
@@ -386,7 +381,7 @@ class Orders
     /**
      * Get shippingCity
      *
-     * @return string 
+     * @return string
      */
     public function getShippingCity()
     {
@@ -409,7 +404,7 @@ class Orders
     /**
      * Get shippingState
      *
-     * @return string 
+     * @return string
      */
     public function getShippingState()
     {
@@ -432,7 +427,7 @@ class Orders
     /**
      * Get shippingZipCode
      *
-     * @return integer 
+     * @return integer
      */
     public function getShippingZipCode()
     {
@@ -455,7 +450,7 @@ class Orders
     /**
      * Get billingStreetAddressOne
      *
-     * @return string 
+     * @return string
      */
     public function getBillingStreetAddressOne()
     {
@@ -478,7 +473,7 @@ class Orders
     /**
      * Get billingStreetAddressTwo
      *
-     * @return string 
+     * @return string
      */
     public function getBillingStreetAddressTwo()
     {
@@ -501,7 +496,7 @@ class Orders
     /**
      * Get billingCity
      *
-     * @return string 
+     * @return string
      */
     public function getBillingCity()
     {
@@ -524,7 +519,7 @@ class Orders
     /**
      * Get billingState
      *
-     * @return string 
+     * @return string
      */
     public function getBillingState()
     {
@@ -547,7 +542,7 @@ class Orders
     /**
      * Get billingZipCode
      *
-     * @return integer 
+     * @return integer
      */
     public function getBillingZipCode()
     {
@@ -570,7 +565,7 @@ class Orders
     /**
      * Get deliveryMethod
      *
-     * @return integer 
+     * @return integer
      */
     public function getDeliveryMethod()
     {
@@ -593,7 +588,7 @@ class Orders
     /**
      * Get deliveryInstructions
      *
-     * @return string 
+     * @return string
      */
     public function getDeliveryInstructions()
     {
@@ -616,7 +611,7 @@ class Orders
     /**
      * Get schedule
      *
-     * @return integer 
+     * @return integer
      */
     public function getSchedule()
     {
@@ -639,7 +634,7 @@ class Orders
     /**
      * Get couponCodes
      *
-     * @return integer 
+     * @return integer
      */
     public function getCouponCodes()
     {
@@ -662,7 +657,7 @@ class Orders
     /**
      * Get comments
      *
-     * @return string 
+     * @return string
      */
     public function getComments()
     {
@@ -685,7 +680,7 @@ class Orders
     /**
      * Get eventLogs
      *
-     * @return integer 
+     * @return integer
      */
     public function getEventLogs()
     {

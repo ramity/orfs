@@ -29,9 +29,8 @@ class Products
     private $name;
 
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="category", type="integer")
+     * @ORM\OneToOne(targetEntity="ORFS\Bundle\StoreBundle\Entity\Categories", cascade={"persist"})
+     * @ORM\JoinColumn(name="category", referencedColumnName="id", onDelete="CASCADE")
      */
     private $category;
 
@@ -64,9 +63,8 @@ class Products
     private $dimensions;
 
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="reviews", type="integer")
+     * @ORM\ManyToMany(targetEntity="ORFS\Bundle\StoreBundle\Entity\Reviews", cascade={"persist"})
+     * @ORM\JoinColumn(name="reviews", referencedColumnName="id", onDelete="CASCADE")
      */
     private $reviews;
 
@@ -74,7 +72,7 @@ class Products
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -97,7 +95,7 @@ class Products
     /**
      * Get name
      *
-     * @return string 
+     * @return string
      */
     public function getName()
     {
@@ -120,7 +118,7 @@ class Products
     /**
      * Get category
      *
-     * @return integer 
+     * @return integer
      */
     public function getCategory()
     {
@@ -143,7 +141,7 @@ class Products
     /**
      * Get price
      *
-     * @return integer 
+     * @return integer
      */
     public function getPrice()
     {
@@ -166,7 +164,7 @@ class Products
     /**
      * Get images
      *
-     * @return integer 
+     * @return integer
      */
     public function getImages()
     {
@@ -189,7 +187,7 @@ class Products
     /**
      * Get description
      *
-     * @return string 
+     * @return string
      */
     public function getDescription()
     {
@@ -212,7 +210,7 @@ class Products
     /**
      * Get dimensions
      *
-     * @return string 
+     * @return string
      */
     public function getDimensions()
     {
@@ -235,7 +233,7 @@ class Products
     /**
      * Get reviews
      *
-     * @return integer 
+     * @return integer
      */
     public function getReviews()
     {

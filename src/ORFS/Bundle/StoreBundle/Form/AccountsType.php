@@ -17,7 +17,6 @@ class AccountsType extends AbstractType
         $builder
             ->add('email')
             ->add('customerId')
-            ->add('password')
             ->add('timeCreated')
             ->add('timeLastActive')
             ->add('isVerified')
@@ -35,7 +34,7 @@ class AccountsType extends AbstractType
             ->add('paymentMethods')
         ;
     }
-    
+
     /**
      * @param OptionsResolverInterface $resolver
      */

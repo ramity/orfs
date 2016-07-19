@@ -36,13 +36,6 @@ class Accounts
     private $customerId;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="password", type="string", length=255)
-     */
-    private $password;
-
-    /**
      * @var \DateTime
      *
      * @ORM\Column(name="timeCreated", type="datetime")
@@ -64,9 +57,8 @@ class Accounts
     private $isVerified;
 
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="orders", type="integer")
+     * @ORM\ManyToMany(targetEntity="ORFS\Bundle\StoreBundle\Entity\Orders", cascade={"persist"})
+     * @ORM\JoinColumn(name="orders", referencedColumnName="id", onDelete="CASCADE")
      */
     private $orders;
 
@@ -92,9 +84,8 @@ class Accounts
     private $company;
 
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="communicationMethod", type="integer")
+     * @ORM\OneToOne(targetEntity="ORFS\Bundle\StoreBundle\Entity\CommunicationMethods", cascade={"persist"})
+     * @ORM\JoinColumn(name="commuinicationMethods", referencedColumnName="id", onDelete="CASCADE")
      */
     private $communicationMethod;
 
@@ -141,9 +132,8 @@ class Accounts
     private $zipCode;
 
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="paymentMethods", type="integer")
+     * @ORM\ManyToMany(targetEntity="ORFS\Bundle\StoreBundle\Entity\PaymentMethods", cascade={"persist"})
+     * @ORM\JoinColumn(name="PaymentMethods", referencedColumnName="id", onDelete="CASCADE")
      */
     private $paymentMethods;
 
@@ -151,7 +141,7 @@ class Accounts
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -174,7 +164,7 @@ class Accounts
     /**
      * Get email
      *
-     * @return string 
+     * @return string
      */
     public function getEmail()
     {
@@ -197,34 +187,11 @@ class Accounts
     /**
      * Get customerId
      *
-     * @return integer 
+     * @return integer
      */
     public function getCustomerId()
     {
         return $this->customerId;
-    }
-
-    /**
-     * Set password
-     *
-     * @param string $password
-     * @return Accounts
-     */
-    public function setPassword($password)
-    {
-        $this->password = $password;
-
-        return $this;
-    }
-
-    /**
-     * Get password
-     *
-     * @return string 
-     */
-    public function getPassword()
-    {
-        return $this->password;
     }
 
     /**
@@ -243,7 +210,7 @@ class Accounts
     /**
      * Get timeCreated
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getTimeCreated()
     {
@@ -266,7 +233,7 @@ class Accounts
     /**
      * Get timeLastActive
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getTimeLastActive()
     {
@@ -289,7 +256,7 @@ class Accounts
     /**
      * Get isVerified
      *
-     * @return integer 
+     * @return integer
      */
     public function getIsVerified()
     {
@@ -312,7 +279,7 @@ class Accounts
     /**
      * Get orders
      *
-     * @return integer 
+     * @return integer
      */
     public function getOrders()
     {
@@ -335,7 +302,7 @@ class Accounts
     /**
      * Get firstName
      *
-     * @return string 
+     * @return string
      */
     public function getFirstName()
     {
@@ -358,7 +325,7 @@ class Accounts
     /**
      * Get lastName
      *
-     * @return string 
+     * @return string
      */
     public function getLastName()
     {
@@ -381,7 +348,7 @@ class Accounts
     /**
      * Get company
      *
-     * @return string 
+     * @return string
      */
     public function getCompany()
     {
@@ -404,7 +371,7 @@ class Accounts
     /**
      * Get communicationMethod
      *
-     * @return integer 
+     * @return integer
      */
     public function getCommunicationMethod()
     {
@@ -427,7 +394,7 @@ class Accounts
     /**
      * Get communicationValue
      *
-     * @return string 
+     * @return string
      */
     public function getCommunicationValue()
     {
@@ -450,7 +417,7 @@ class Accounts
     /**
      * Get streetAddressOne
      *
-     * @return string 
+     * @return string
      */
     public function getStreetAddressOne()
     {
@@ -473,7 +440,7 @@ class Accounts
     /**
      * Get streetAddressTwo
      *
-     * @return string 
+     * @return string
      */
     public function getStreetAddressTwo()
     {
@@ -496,7 +463,7 @@ class Accounts
     /**
      * Get city
      *
-     * @return string 
+     * @return string
      */
     public function getCity()
     {
@@ -519,7 +486,7 @@ class Accounts
     /**
      * Get state
      *
-     * @return string 
+     * @return string
      */
     public function getState()
     {
@@ -542,7 +509,7 @@ class Accounts
     /**
      * Get zipCode
      *
-     * @return integer 
+     * @return integer
      */
     public function getZipCode()
     {
@@ -565,7 +532,7 @@ class Accounts
     /**
      * Get paymentMethods
      *
-     * @return integer 
+     * @return integer
      */
     public function getPaymentMethods()
     {

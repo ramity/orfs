@@ -29,24 +29,16 @@ class Carts
     private $uniqId;
 
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="products", type="integer")
+     * @ORM\ManyToMany(targetEntity="ORFS\Bundle\StoreBundle\Entity\Products", cascade={"persist"})
+     * @ORM\JoinColumn(name="products", referencedColumnName="id", onDelete="CASCADE")
      */
     private $products;
-
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="total", type="integer")
-     */
-    private $total;
 
 
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -69,7 +61,7 @@ class Carts
     /**
      * Get uniqId
      *
-     * @return string 
+     * @return string
      */
     public function getUniqId()
     {
@@ -92,33 +84,10 @@ class Carts
     /**
      * Get products
      *
-     * @return integer 
+     * @return integer
      */
     public function getProducts()
     {
         return $this->products;
-    }
-
-    /**
-     * Set total
-     *
-     * @param integer $total
-     * @return Carts
-     */
-    public function setTotal($total)
-    {
-        $this->total = $total;
-
-        return $this;
-    }
-
-    /**
-     * Get total
-     *
-     * @return integer 
-     */
-    public function getTotal()
-    {
-        return $this->total;
     }
 }

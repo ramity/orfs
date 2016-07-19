@@ -17,10 +17,9 @@ class CartsType extends AbstractType
         $builder
             ->add('uniqId')
             ->add('products')
-            ->add('total')
         ;
     }
-    
+
     /**
      * @param OptionsResolverInterface $resolver
      */
